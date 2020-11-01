@@ -106,7 +106,7 @@ class Simple115StateWrapper(gym.ObservationWrapper):
     """
     gym.ObservationWrapper.__init__(self, env)
     action_shape = np.shape(self.env.action_space)
-    shape = (action_shape[0] if len(action_shape) else 1, 115)
+    shape = (action_shape[0] if len(action_shape) else 1, 118)
     self.observation_space = gym.spaces.Box(
         low=-np.inf, high=np.inf, shape=shape, dtype=np.float32)
     self._fixed_positions = fixed_positions
@@ -184,6 +184,7 @@ class Simple115StateWrapper(gym.ObservationWrapper):
       game_mode = [0] * 7
       game_mode[obs['game_mode']] = 1
       o.extend(game_mode)
+      o.extend([3, 5, 8])
       final_obs.append(o)
     return np.array(final_obs, dtype=np.float32)
 

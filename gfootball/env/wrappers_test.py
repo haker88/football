@@ -122,12 +122,12 @@ class SingleAgentWrapperTest(unittest.TestCase):
 
     self.assertEqual(
         gym.spaces.Box(
-            low=-np.inf, high=np.inf, shape=(115,), dtype=np.float32),
+            low=-np.inf, high=np.inf, shape=(118,), dtype=np.float32),
         env.observation_space)
 
     env.reset()
     obs, _, _, _ = env.step(env.action_space.sample())
-    self.assertEqual((115,), obs.shape)
+    self.assertEqual((118,), obs.shape)
     env.close()
 
     env = gym.make(
@@ -136,12 +136,12 @@ class SingleAgentWrapperTest(unittest.TestCase):
 
     self.assertEqual(
         gym.spaces.Box(
-            low=-np.inf, high=np.inf, shape=(2, 115), dtype=np.float32),
+            low=-np.inf, high=np.inf, shape=(2, 118), dtype=np.float32),
         env.observation_space)
 
     env.reset()
     obs, _, _, _ = env.step(env.action_space.sample())
-    self.assertEqual((2, 115), obs.shape)
+    self.assertEqual((2, 118), obs.shape)
     env.close()
 
 if __name__ == '__main__':
